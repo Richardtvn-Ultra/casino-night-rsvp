@@ -228,6 +228,38 @@
     if (!reduceMotion) setInterval(render, 1000);
   })();
 
+  /* ---------------- featured roulette wheel ---------------- */
+  (function wheel() {
+    var order = [
+      0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22,
+      18, 29, 7, 28, 12, 35, 3, 26,
+    ];
+    var reds = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
+    var wheelEl = document.getElementById("wheel");
+    if (!wheelEl) return;
+
+    var radius = (wheelEl.getBoundingClientRect().width / 2) * 0.82;
+    var segAngle = 360 / order.length;
+    var stops = [];
+
+    order.forEach(function (num, i) {
+      var start = segAngle * i;
+      var end = segAngle * (i + 1);
+      var color = num === 0 ? "#0b5c2e" : reds.indexOf(num) > -1 ? "#a3172f" : "#111";
+      stops.push(color + " " + start + "deg " + end + "deg");
+
+      var angle = start + segAngle / 2;
+      var el = document.createElement("div");
+      el.className = "wheel-number";
+      el.textContent = num;
+      el.style.transform =
+        "rotate(" + angle + "deg) translate(" + radius + "px) rotate(-" + angle + "deg) translate(-50%,-50%)";
+      wheelEl.appendChild(el);
+    });
+
+    wheelEl.style.background = "conic-gradient(from 0deg," + stops.join(",") + ")";
+  })();
+
   /* ---------------- live RSVP counter ---------------- */
   function refreshLiveCount() {
     var section = document.getElementById("live-counter");

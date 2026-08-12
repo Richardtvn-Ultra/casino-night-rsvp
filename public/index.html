@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>You're Invited: Casino Night — RSVP</title>
+<title>You're Invited: Casino Night RSVP</title>
 <meta name="description" content="RSVP for the BPMS Casino Night Year-End Function, Saturday 28 November 2026.">
 <link rel="stylesheet" href="/styles.css">
 </head>
@@ -13,12 +13,35 @@
     <div class="vignette"></div>
     <div class="spotlight"></div>
     <div class="wheel-decor" aria-hidden="true"></div>
-    <span class="hero-motif spade" aria-hidden="true">&#9824;</span>
-    <span class="hero-motif heart" aria-hidden="true">&#9829;</span>
     <span class="hero-motif diamond" aria-hidden="true">&#9830;</span>
     <span class="hero-motif club" aria-hidden="true">&#9827;</span>
-    <span class="hero-motif spade2" aria-hidden="true">&#9824;</span>
-    <span class="hero-motif heart2" aria-hidden="true">&#9829;</span>
+
+    <div class="hero-decor" aria-hidden="true">
+      <div class="cards-fan">
+        <div class="card c1 gold"><span class="pip">A<span class="suit">&#9824;</span></span><span class="center-suit">&#9824;</span></div>
+        <div class="card c2 gold"><span class="pip">A<span class="suit">&#9827;</span></span><span class="center-suit">&#9827;</span></div>
+        <div class="card c3 red"><span class="pip">A<span class="suit">&#9830;</span></span><span class="center-suit">&#9830;</span></div>
+        <div class="card c4 red"><span class="pip">A<span class="suit">&#9829;</span></span><span class="center-suit">&#9829;</span></div>
+      </div>
+      <div class="dice-group">
+        <div class="die d1"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="die d2"><span></span><span></span><span></span></div>
+      </div>
+      <div class="side-chips left">
+        <div class="chip black c1"><span class="glyph">&#9824;</span></div>
+        <div class="chip black c2"><span class="glyph">&#9824;</span></div>
+        <div class="chip crimson c3"><span class="glyph">&#9824;</span></div>
+      </div>
+      <div class="side-chips right">
+        <div class="chip black c1"><span class="glyph">&#9827;</span></div>
+        <div class="chip crimson c2"><span class="glyph">&#9827;</span></div>
+        <div class="chip crimson c3"><span class="glyph">&#9827;</span></div>
+      </div>
+      <span class="sparkle s1"></span>
+      <span class="sparkle s2"></span>
+      <span class="sparkle s3"></span>
+      <span class="sparkle s4"></span>
+    </div>
 
     <div class="hero-inner">
       <p class="eyebrow">You're Invited:</p>
@@ -40,7 +63,7 @@
 
       <div class="countdown" id="countdown" aria-hidden="true"></div>
 
-      <a href="#rsvp" class="hero-cta">Deal Me In — RSVP Now</a>
+      <a href="#rsvp" class="hero-cta">Deal Me In · RSVP Now</a>
     </div>
   </section>
 
@@ -52,22 +75,22 @@
         <div class="highlight-card">
           <div class="glyph" aria-hidden="true">&#127922;</div>
           <h3>Poker, Blackjack &amp; Roulette</h3>
-          <p>Play the tables all night — no experience needed, dealers will show you the ropes.</p>
+          <p>Play the tables all night. No experience needed, dealers will show you the ropes.</p>
         </div>
         <div class="highlight-card">
           <div class="glyph" aria-hidden="true">&#127864;</div>
           <h3>Food &amp; Drinks</h3>
-          <p>Good food, good drinks, good company — happy to have you even if you never touch a table.</p>
+          <p>Good food, good drinks, good company. Happy to have you even if you never touch a table.</p>
         </div>
         <div class="highlight-card">
           <div class="glyph" aria-hidden="true">&#127942;</div>
           <h3>Real Prizes</h3>
-          <p>Play for fun with BPMS dollars — real prizes up for grabs at the end of the night.</p>
+          <p>Play for fun with BPMS dollars: real prizes up for grabs at the end of the night.</p>
         </div>
         <div class="highlight-card">
           <div class="glyph" aria-hidden="true">&#128101;</div>
           <h3>Partners Welcome</h3>
-          <p>Bring your plus-one — just let us know on the form below.</p>
+          <p>Bring your plus-one, just let us know on the form below.</p>
         </div>
       </div>
     </div>
@@ -78,12 +101,24 @@
     <div class="label">already in for Casino Night</div>
   </section>
 
+  <section class="wheel-showcase">
+    <p class="section-eyebrow">Place your bets</p>
+    <div class="wheel-zone">
+      <div class="wheel" id="wheel">
+        <div class="hub"></div>
+        <div class="spindle"></div>
+      </div>
+    </div>
+    <div class="wheel-medallion left"><span class="glyph">&#9829;</span></div>
+    <div class="wheel-medallion right"><span class="glyph">&#9830;</span></div>
+  </section>
+
   <section class="rsvp-section" id="rsvp">
     <form class="form-card" id="rsvp-form" novalidate>
       <div class="felt-header">
         <div class="suits" aria-hidden="true">&#9824; &#9829; &#9830; &#9827;</div>
         <h2>Reserve Your Seat</h2>
-        <p class="subtitle">Let us know if you're in — takes less than a minute.</p>
+        <p class="subtitle">Let us know if you're in. It takes less than a minute.</p>
       </div>
 
       <div class="field">
@@ -102,7 +137,7 @@
           <input type="radio" id="att-yes" name="attending" value="yes" required>
           <label for="att-yes" class="pill">Yes, I'll be there</label>
           <input type="radio" id="att-no" name="attending" value="no_ilse">
-          <label for="att-no" class="pill">No – arranged with Ilse</label>
+          <label for="att-no" class="pill">No - arranged with Ilse</label>
         </div>
       </div>
 
@@ -126,7 +161,7 @@
           <input type="radio" id="diet-kosher" name="dietary" value="kosher">
           <label for="diet-kosher" class="pill">Kosher</label>
           <input type="radio" id="diet-halal" name="dietary" value="halal">
-          <label for="diet-halal" class="pill">Halal</label>
+          <label for="diet-halal" class="pill">Halaal</label>
           <input type="radio" id="diet-gf" name="dietary" value="gluten_free">
           <label for="diet-gf" class="pill">Gluten-free</label>
           <input type="radio" id="diet-none" name="dietary" value="none">
@@ -159,7 +194,7 @@
       <canvas class="confetti-canvas" id="confetti-canvas" aria-hidden="true"></canvas>
       <div class="success-glyph" aria-hidden="true">&#127920;</div>
       <h2>You're on the list!</h2>
-      <p>Thanks for RSVPing — we can't wait to see you at Casino Night. Keep an eye out for more details closer to the time.</p>
+      <p>Thanks for RSVPing! We can't wait to see you at Casino Night. Keep an eye out for more details closer to the time.</p>
       <a href="#" class="calendar-link" id="calendar-link" hidden>&#128197; Add to calendar</a>
     </div>
   </section>
