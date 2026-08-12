@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casino Night — RSVPs</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="page admin-page">
+
+  <header class="admin-header">
+    <h1>RSVPs</h1>
+    <p>Casino Night · Year-end Function</p>
+  </header>
+
+  <div class="login-card" id="login-card">
+    <h2>Enter password</h2>
+    <p>This page shows everyone's RSVP details.</p>
+    <form id="login-form">
+      <input class="text-input" type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" required>
+      <button type="submit" class="submit-btn" id="login-btn">View RSVPs</button>
+      <p class="form-error" id="login-error" hidden></p>
+    </form>
+  </div>
+
+  <div class="admin-body" id="admin-body" hidden>
+    <div class="summary-row" id="summary-row"></div>
+
+    <div class="toolbar">
+      <span class="count" id="row-count"></span>
+      <button class="export-btn" id="export-btn">Download CSV</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="rsvp-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Attending</th>
+            <th>Partner</th>
+            <th>Dietary</th>
+            <th>Tables</th>
+            <th>Submitted</th>
+          </tr>
+        </thead>
+        <tbody id="rsvp-tbody"></tbody>
+      </table>
+    </div>
+    <div class="empty-state" id="empty-state" hidden>No RSVPs yet.</div>
+  </div>
+</div>
+
+<script src="/admin.js"></script>
+</body>
+</html>

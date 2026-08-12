@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're Invited: Casino Night — RSVP</title>
+<meta name="description" content="RSVP for the BPMS Casino Night Year-End Function, Saturday 28 November 2026.">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="page">
+
+  <section class="hero">
+    <div class="felt-glow"></div>
+    <span class="hero-motif spade" aria-hidden="true">&#9824;</span>
+    <span class="hero-motif heart" aria-hidden="true">&#9829;</span>
+    <span class="hero-motif diamond" aria-hidden="true">&#9830;</span>
+    <span class="hero-motif club" aria-hidden="true">&#9827;</span>
+
+    <p class="eyebrow">You're Invited:</p>
+    <div class="marquee-wrap"><h1 class="marquee">CASINO</h1></div>
+    <p class="night-script">Night</p>
+
+    <div class="ribbon-wrap">
+      <div class="ribbon"><span>Year-end Function</span></div>
+    </div>
+
+    <div class="event-meta">
+      <div class="date">Saturday, 28 November 2026</div>
+      <div class="sub">
+        Time: TBC<br>
+        BPMS School Hall<br>
+        Partners welcome to join
+      </div>
+    </div>
+
+    <p class="scroll-cue">RSVP below<span class="arrow" aria-hidden="true"></span></p>
+  </section>
+
+  <section class="rsvp-section">
+    <form class="form-card" id="rsvp-form" novalidate>
+      <h2>RSVP</h2>
+      <p class="subtitle">Let us know if you're in — takes less than a minute.</p>
+
+      <div class="field">
+        <label class="field-label" for="full_name">Full name<span class="req">*</span></label>
+        <input class="text-input" type="text" id="full_name" name="full_name" autocomplete="name" required>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="email">Email address<span class="req">*</span></label>
+        <input class="text-input" type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+
+      <div class="field">
+        <span class="field-label" id="attending-label">Are you attending?<span class="req">*</span></span>
+        <div class="pill-group" role="radiogroup" aria-labelledby="attending-label">
+          <input type="radio" id="att-yes" name="attending" value="yes" required>
+          <label for="att-yes" class="pill">Yes, I'll be there</label>
+          <input type="radio" id="att-no" name="attending" value="no_ilse">
+          <label for="att-no" class="pill">No – arranged with Ilse</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-label" id="partner-label">Will you be bringing your partner?<span class="req">*</span></span>
+        <div class="pill-group" role="radiogroup" aria-labelledby="partner-label">
+          <input type="radio" id="partner-yes" name="bringing_partner" value="yes" required>
+          <label for="partner-yes" class="pill">Yes</label>
+          <input type="radio" id="partner-no" name="bringing_partner" value="no">
+          <label for="partner-no" class="pill">No</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-label" id="dietary-label">Allergies or dietary restrictions?<span class="req">*</span></span>
+        <div class="pill-group" role="radiogroup" aria-labelledby="dietary-label" id="dietary-group">
+          <input type="radio" id="diet-veg" name="dietary" value="vegetarian" required>
+          <label for="diet-veg" class="pill">Vegetarian</label>
+          <input type="radio" id="diet-vegan" name="dietary" value="vegan">
+          <label for="diet-vegan" class="pill">Vegan</label>
+          <input type="radio" id="diet-kosher" name="dietary" value="kosher">
+          <label for="diet-kosher" class="pill">Kosher</label>
+          <input type="radio" id="diet-halal" name="dietary" value="halal">
+          <label for="diet-halal" class="pill">Halal</label>
+          <input type="radio" id="diet-gf" name="dietary" value="gluten_free">
+          <label for="diet-gf" class="pill">Gluten-free</label>
+          <input type="radio" id="diet-none" name="dietary" value="none">
+          <label for="diet-none" class="pill">None</label>
+          <input type="radio" id="diet-other" name="dietary" value="other">
+          <label for="diet-other" class="pill">Other</label>
+        </div>
+        <div class="other-field" id="dietary-other-wrap" hidden>
+          <input class="text-input" type="text" id="dietary_other" name="dietary_other" placeholder="Tell us more...">
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-label" id="table-label">Playing at the tables (poker, blackjack, roulette), or just here for food, drinks and company?</span>
+        <div class="pill-group" role="radiogroup" aria-labelledby="table-label">
+          <input type="radio" id="table-playing" name="table_preference" value="playing">
+          <label for="table-playing" class="pill">Playing at the tables</label>
+          <input type="radio" id="table-notplaying" name="table_preference" value="not_playing">
+          <label for="table-notplaying" class="pill">Food, drinks &amp; company</label>
+          <input type="radio" id="table-notsure" name="table_preference" value="not_sure">
+          <label for="table-notsure" class="pill">Not sure yet</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">Submit RSVP</button>
+      <p class="form-error" id="form-error" hidden></p>
+    </form>
+
+    <div class="success-card" id="success-card" hidden>
+      <canvas class="confetti-canvas" id="confetti-canvas" aria-hidden="true"></canvas>
+      <div class="success-glyph" aria-hidden="true">&#127920;</div>
+      <h2>You're on the list!</h2>
+      <p>Thanks for RSVPing — we can't wait to see you at Casino Night. Keep an eye out for more details closer to the time.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">BPMS Casino Night · Year-end Function</footer>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
