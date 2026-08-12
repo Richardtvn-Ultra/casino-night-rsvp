@@ -8,6 +8,7 @@
   var dietaryOtherWrap = document.getElementById("dietary-other-wrap");
   var dietaryOtherInput = document.getElementById("dietary_other");
   var dietaryGroup = document.getElementById("dietary-group");
+  var calendarLink = document.getElementById("calendar-link");
 
   dietaryGroup.addEventListener("change", function (e) {
     if (e.target.name !== "dietary") return;
@@ -33,6 +34,26 @@
   function getRadioValue(name) {
     var el = form.querySelector('input[name="' + name + '"]:checked');
     return el ? el.value : "";
+  }
+
+  function buildCalendarLink() {
+    var lines = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//BPMS Casino Night//RSVP//EN",
+      "BEGIN:VEVENT",
+      "UID:bpms-casino-night-2026@bpmsevent",
+      "DTSTAMP:20260812T000000Z",
+      "DTSTART;VALUE=DATE:20261128",
+      "DTEND;VALUE=DATE:20261129",
+      "SUMMARY:BPMS Casino Night - Year-end Function",
+      "LOCATION:BPMS School Hall",
+      "DESCRIPTION:Casino Night year-end function. Time still TBC - watch for updates.",
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ];
+    var blob = new Blob([lines.join("\r\n")], { type: "text/calendar" });
+    return URL.createObjectURL(blob);
   }
 
   form.addEventListener("submit", function (e) {
@@ -81,7 +102,14 @@
       .then(function () {
         form.hidden = true;
         successCard.hidden = false;
+        if (attending === "yes") {
+          calendarLink.href = buildCalendarLink();
+          calendarLink.download = "casino-night.ics";
+          calendarLink.hidden = false;
+        }
+        successCard.scrollIntoView({ behavior: "smooth", block: "start" });
         launchConfetti();
+        refreshLiveCount();
       })
       .catch(function (err) {
         showError(err.message || "Something went wrong. Please try again.");
@@ -108,7 +136,7 @@
     var glyphs = ["♠", "♥", "♦", "♣"];
     var colors = ["#f6e3a6", "#d9b658", "#c8203c"];
     var pieces = [];
-    var count = 42;
+    var count = 48;
 
     for (var i = 0; i < count; i++) {
       pieces.push({
@@ -156,4 +184,97 @@
 
     requestAnimationFrame(frame);
   }
+
+  /* ---------------- countdown ---------------- */
+  (function countdown() {
+    var el = document.getElementById("countdown");
+    var target = new Date("2026-11-28T00:00:00");
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function render() {
+      var diff = target.getTime() - Date.now();
+      if (diff <= 0) {
+        el.innerHTML =
+          '<div class="tile"><div class="num">&#127920;</div><div class="unit">It\'s tonight!</div></div>';
+        return;
+      }
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
+
+      var units = [
+        [days, "Days"],
+        [hours, "Hours"],
+        [mins, "Min"],
+      ];
+      if (!reduceMotion) units.push([secs, "Sec"]);
+
+      el.innerHTML = units
+        .map(function (u) {
+          return (
+            '<div class="tile"><div class="num">' +
+            String(u[0]).padStart(2, "0") +
+            '</div><div class="unit">' +
+            u[1] +
+            "</div></div>"
+          );
+        })
+        .join("");
+    }
+
+    render();
+    if (!reduceMotion) setInterval(render, 1000);
+  })();
+
+  /* ---------------- live RSVP counter ---------------- */
+  function refreshLiveCount() {
+    var section = document.getElementById("live-counter");
+    var countEl = document.getElementById("live-count");
+    var labelEl = section.querySelector(".label");
+
+    fetch("/api/rsvp-count")
+      .then(function (res) {
+        if (!res.ok) throw new Error("count unavailable");
+        return res.json();
+      })
+      .then(function (data) {
+        var target = data.count || 0;
+        if (target === 0) {
+          labelEl.textContent = "Be the first to RSVP!";
+        } else {
+          labelEl.textContent =
+            target === 1 ? "person already in for Casino Night" : "people already in for Casino Night";
+        }
+        section.hidden = false;
+        animateCount(countEl, target);
+      })
+      .catch(function () {
+        /* silently skip if unavailable */
+      });
+  }
+
+  function animateCount(el, target) {
+    if (target === 0) {
+      el.textContent = "0";
+      return;
+    }
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      el.textContent = String(target);
+      return;
+    }
+    var start = performance.now();
+    var duration = 1000;
+    function frame(now) {
+      var progress = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  refreshLiveCount();
 })();

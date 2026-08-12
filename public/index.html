@@ -8,39 +8,83 @@
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<div class="page">
 
   <section class="hero">
-    <div class="felt-glow"></div>
+    <div class="vignette"></div>
+    <div class="spotlight"></div>
+    <div class="wheel-decor" aria-hidden="true"></div>
     <span class="hero-motif spade" aria-hidden="true">&#9824;</span>
     <span class="hero-motif heart" aria-hidden="true">&#9829;</span>
     <span class="hero-motif diamond" aria-hidden="true">&#9830;</span>
     <span class="hero-motif club" aria-hidden="true">&#9827;</span>
+    <span class="hero-motif spade2" aria-hidden="true">&#9824;</span>
+    <span class="hero-motif heart2" aria-hidden="true">&#9829;</span>
 
-    <p class="eyebrow">You're Invited:</p>
-    <div class="marquee-wrap"><h1 class="marquee">CASINO</h1></div>
-    <p class="night-script">Night</p>
+    <div class="hero-inner">
+      <p class="eyebrow">You're Invited:</p>
+      <div class="marquee-wrap"><h1 class="marquee">CASINO</h1></div>
+      <p class="night-script">Night</p>
 
-    <div class="ribbon-wrap">
-      <div class="ribbon"><span>Year-end Function</span></div>
-    </div>
-
-    <div class="event-meta">
-      <div class="date">Saturday, 28 November 2026</div>
-      <div class="sub">
-        Time: TBC<br>
-        BPMS School Hall<br>
-        Partners welcome to join
+      <div class="ribbon-wrap">
+        <div class="ribbon"><span>Year-end Function</span></div>
       </div>
-    </div>
 
-    <p class="scroll-cue">RSVP below<span class="arrow" aria-hidden="true"></span></p>
+      <div class="event-meta">
+        <div class="date">Saturday, 28 November 2026</div>
+        <div class="sub">
+          Time: TBC<br>
+          BPMS School Hall<br>
+          Partners welcome to join
+        </div>
+      </div>
+
+      <div class="countdown" id="countdown" aria-hidden="true"></div>
+
+      <a href="#rsvp" class="hero-cta">Deal Me In — RSVP Now</a>
+    </div>
   </section>
 
-  <section class="rsvp-section">
+  <section class="highlights">
+    <div class="wrap">
+      <p class="section-eyebrow">What's on the table</p>
+      <h2>An evening of games, food and good company</h2>
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <div class="glyph" aria-hidden="true">&#127922;</div>
+          <h3>Poker, Blackjack &amp; Roulette</h3>
+          <p>Play the tables all night — no experience needed, dealers will show you the ropes.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="glyph" aria-hidden="true">&#127864;</div>
+          <h3>Food &amp; Drinks</h3>
+          <p>Good food, good drinks, good company — happy to have you even if you never touch a table.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="glyph" aria-hidden="true">&#127942;</div>
+          <h3>Real Prizes</h3>
+          <p>Play for fun with BPMS dollars — real prizes up for grabs at the end of the night.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="glyph" aria-hidden="true">&#128101;</div>
+          <h3>Partners Welcome</h3>
+          <p>Bring your plus-one — just let us know on the form below.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="live-counter" id="live-counter" hidden>
+    <div class="count" id="live-count">0</div>
+    <div class="label">already in for Casino Night</div>
+  </section>
+
+  <section class="rsvp-section" id="rsvp">
     <form class="form-card" id="rsvp-form" novalidate>
-      <h2>RSVP</h2>
-      <p class="subtitle">Let us know if you're in — takes less than a minute.</p>
+      <div class="felt-header">
+        <div class="suits" aria-hidden="true">&#9824; &#9829; &#9830; &#9827;</div>
+        <h2>Reserve Your Seat</h2>
+        <p class="subtitle">Let us know if you're in — takes less than a minute.</p>
+      </div>
 
       <div class="field">
         <label class="field-label" for="full_name">Full name<span class="req">*</span></label>
@@ -116,11 +160,14 @@
       <div class="success-glyph" aria-hidden="true">&#127920;</div>
       <h2>You're on the list!</h2>
       <p>Thanks for RSVPing — we can't wait to see you at Casino Night. Keep an eye out for more details closer to the time.</p>
+      <a href="#" class="calendar-link" id="calendar-link" hidden>&#128197; Add to calendar</a>
     </div>
   </section>
 
-  <footer class="site-footer">BPMS Casino Night · Year-end Function</footer>
-</div>
+  <footer class="site-footer">
+    <span class="suits" aria-hidden="true">&#9824; &#9829; &#9830; &#9827;</span>
+    BPMS Casino Night · Year-end Function
+  </footer>
 
 <script src="/app.js"></script>
 </body>
