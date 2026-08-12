@@ -228,36 +228,51 @@
     if (!reduceMotion) setInterval(render, 1000);
   })();
 
-  /* ---------------- featured roulette wheel ---------------- */
-  (function wheel() {
-    var order = [
-      0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22,
-      18, 29, 7, 28, 12, 35, 3, 26,
-    ];
+  /* ---------------- featured betting table ---------------- */
+  (function betTable() {
+    var table = document.getElementById("bet-table");
+    if (!table) return;
+
     var reds = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
-    var wheelEl = document.getElementById("wheel");
-    if (!wheelEl) return;
 
-    var radius = (wheelEl.getBoundingClientRect().width / 2) * 0.82;
-    var segAngle = 360 / order.length;
-    var stops = [];
-
-    order.forEach(function (num, i) {
-      var start = segAngle * i;
-      var end = segAngle * (i + 1);
-      var color = num === 0 ? "#0b5c2e" : reds.indexOf(num) > -1 ? "#a3172f" : "#111";
-      stops.push(color + " " + start + "deg " + end + "deg");
-
-      var angle = start + segAngle / 2;
+    function cell(className, text, gridColumn, gridRow) {
       var el = document.createElement("div");
-      el.className = "wheel-number";
-      el.textContent = num;
-      el.style.transform =
-        "rotate(" + angle + "deg) translate(" + radius + "px) rotate(-" + angle + "deg) translate(-50%,-50%)";
-      wheelEl.appendChild(el);
+      el.className = "bet-cell " + className;
+      el.textContent = text;
+      el.style.gridColumn = gridColumn;
+      el.style.gridRow = gridRow;
+      return el;
+    }
+
+    table.appendChild(cell("zero", "0", "1", "1 / 4"));
+
+    for (var n = 1; n <= 36; n++) {
+      var col = Math.ceil(n / 3) + 1;
+      var row = n % 3 === 0 ? 1 : n % 3 === 2 ? 2 : 3;
+      var color = reds.indexOf(n) > -1 ? "red" : "black";
+      table.appendChild(cell(color, String(n), String(col), String(row)));
+    }
+
+    var dozens = [
+      ["1st 12", "2 / 6"],
+      ["2nd 12", "6 / 10"],
+      ["3rd 12", "10 / 14"],
+    ];
+    dozens.forEach(function (d) {
+      table.appendChild(cell("dozen", d[0], d[1], "4"));
     });
 
-    wheelEl.style.background = "conic-gradient(from 0deg," + stops.join(",") + ")";
+    var outside = [
+      ["1 to 18", "2 / 4", ""],
+      ["Even", "4 / 6", ""],
+      ["Red", "6 / 8", "red-txt"],
+      ["Black", "8 / 10", ""],
+      ["Odd", "10 / 12", ""],
+      ["19 to 36", "12 / 14", ""],
+    ];
+    outside.forEach(function (o) {
+      table.appendChild(cell("outside " + o[2], o[0], o[1], "5"));
+    });
   })();
 
   /* ---------------- live RSVP counter ---------------- */
