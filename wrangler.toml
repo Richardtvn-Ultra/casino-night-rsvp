@@ -9,4 +9,4 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "casino_rsvp_db"
-database_id = "REPLACE_WITH_YOUR_DATABASE_ID"
+database_id = "3f3eda26-0b35-4c33-97c6-f6d712fbb637"
