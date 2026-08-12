@@ -228,53 +228,6 @@
     if (!reduceMotion) setInterval(render, 1000);
   })();
 
-  /* ---------------- featured betting table ---------------- */
-  (function betTable() {
-    var table = document.getElementById("bet-table");
-    if (!table) return;
-
-    var reds = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
-
-    function cell(className, text, gridColumn, gridRow) {
-      var el = document.createElement("div");
-      el.className = "bet-cell " + className;
-      el.textContent = text;
-      el.style.gridColumn = gridColumn;
-      el.style.gridRow = gridRow;
-      return el;
-    }
-
-    table.appendChild(cell("zero", "0", "1", "1 / 4"));
-
-    for (var n = 1; n <= 36; n++) {
-      var col = Math.ceil(n / 3) + 1;
-      var row = n % 3 === 0 ? 1 : n % 3 === 2 ? 2 : 3;
-      var color = reds.indexOf(n) > -1 ? "red" : "black";
-      table.appendChild(cell(color, String(n), String(col), String(row)));
-    }
-
-    var dozens = [
-      ["1st 12", "2 / 6"],
-      ["2nd 12", "6 / 10"],
-      ["3rd 12", "10 / 14"],
-    ];
-    dozens.forEach(function (d) {
-      table.appendChild(cell("dozen", d[0], d[1], "4"));
-    });
-
-    var outside = [
-      ["1 to 18", "2 / 4", ""],
-      ["Even", "4 / 6", ""],
-      ["Red", "6 / 8", "red-txt"],
-      ["Black", "8 / 10", ""],
-      ["Odd", "10 / 12", ""],
-      ["19 to 36", "12 / 14", ""],
-    ];
-    outside.forEach(function (o) {
-      table.appendChild(cell("outside " + o[2], o[0], o[1], "5"));
-    });
-  })();
-
   /* ---------------- live RSVP counter ---------------- */
   function refreshLiveCount() {
     var section = document.getElementById("live-counter");
