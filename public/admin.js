@@ -20,7 +20,7 @@
     vegetarian: "Vegetarian",
     vegan: "Vegan",
     kosher: "Kosher",
-    halal: "Halal",
+    halal: "Halaal",
     gluten_free: "Gluten-free",
     none: "None",
     other: "Other",
