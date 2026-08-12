@@ -1,0 +1,12 @@
+{
+  "name": "casino-night-rsvp",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wrangler pages dev",
+    "deploy": "wrangler pages deploy public --project-name=casino-night-rsvp"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}
