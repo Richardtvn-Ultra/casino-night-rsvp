@@ -123,6 +123,24 @@ a{color:var(--gold-light);}
 }
 @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg);}}
 
+/* dice-roll video background */
+.hero-video-wrap{
+  position:absolute;inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.hero-video{
+  width:100%;height:100%;
+  object-fit:cover;
+  filter:brightness(0.5) saturate(1.1);
+}
+.hero-video-overlay{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 42%, rgba(5,4,3,0.25), rgba(5,4,3,0.75) 72%),
+    linear-gradient(180deg, rgba(5,4,3,0.5) 0%, rgba(5,4,3,0.1) 30%, rgba(5,4,3,0.6) 100%);
+}
+
 .hero-motif{
   position:absolute;
   font-size:clamp(20px,2.6vw,32px);

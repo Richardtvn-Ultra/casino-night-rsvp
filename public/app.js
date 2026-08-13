@@ -10,6 +10,17 @@
   var dietaryGroup = document.getElementById("dietary-group");
   var calendarLink = document.getElementById("calendar-link");
 
+  /* ---------------- hero dice-roll video ---------------- */
+  (function heroVideo() {
+    var video = document.getElementById("hero-video");
+    if (!video) return;
+    video.playbackRate = 0.8;
+    video.addEventListener("loadedmetadata", function () {
+      video.playbackRate = 0.8;
+    });
+    /* no loop attribute: the video plays the roll once, then holds on the final resting frame */
+  })();
+
   dietaryGroup.addEventListener("change", function (e) {
     if (e.target.name !== "dietary") return;
     var isOther = e.target.value === "other";
