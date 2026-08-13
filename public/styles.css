@@ -518,6 +518,8 @@ a{color:var(--gold-light);}
 }
 
 .pill-group{display:flex;flex-wrap:wrap;gap:10px;}
+#dietary-group{flex-direction:column;flex-wrap:nowrap;align-items:stretch;}
+#dietary-group .pill{justify-content:center;}
 .pill-group input[type="radio"]{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none;}
 .pill{
   display:inline-flex;
