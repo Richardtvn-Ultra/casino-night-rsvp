@@ -28,7 +28,7 @@
   var ATTENDING_LABELS = { yes: "Yes", no_ilse: "No (arranged w/ Ilse)" };
   var TABLE_PREF_LABELS = {
     playing: "Playing",
-    not_playing: "Food & drinks",
+    not_playing: "Food",
     not_sure: "Not sure",
   };
 
