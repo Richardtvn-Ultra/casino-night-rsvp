@@ -17,7 +17,7 @@ const DIETARY_LABELS = {
   vegetarian: "Vegetarian",
   vegan: "Vegan",
   kosher: "Kosher",
-  halal: "Halal",
+  halal: "Halaal",
   gluten_free: "Gluten-free",
   none: "None",
   other: "Other",
@@ -30,7 +30,7 @@ const ATTENDING_LABELS = {
 
 const TABLE_PREF_LABELS = {
   playing: "Playing at the tables",
-  not_playing: "Not playing - food, drinks and company",
+  not_playing: "Not playing - food and company",
   not_sure: "Not sure yet",
 };
 
